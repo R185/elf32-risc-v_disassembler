@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "constants.cpp"
-#include "elf_headers.cpp"
-#include "decode.cpp"
+#include "lib/constants.cpp"
+#include "lib/elf_headers.cpp"
+#include "lib/decode.cpp"
 
 int main(int argc, char** argv) {
     if (argc != 3) return 1;

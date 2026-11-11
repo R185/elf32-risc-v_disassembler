@@ -2,7 +2,7 @@ CXX      ?= g++
 CXXFLAGS ?= -std=c++17 -O2 -Wall -Wextra
 TARGET   ?= disasm
 SRCS      = main.cpp
-HDRS      = constants.cpp elf_headers.cpp decode.cpp
+HDRS      = lib/constants.cpp lib/elf_headers.cpp lib/decode.cpp
 
 all: $(TARGET)
 
