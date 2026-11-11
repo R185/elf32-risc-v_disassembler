@@ -1,0 +1,84 @@
+.text
+000001b8   <_start>:
+   001b8:	123450b7	    lui	ra, 74565
+   001bc:	01000117	  auipc	sp, 4096
+   001c0:	004001ef	    jal	gp, first_target ; 0x1c4
+000001c4   <first_target>:
+   001c4:	00008267	   jalr	tp, 0(ra)
+   001c8:	100002b7	    lui	t0, 65536
+   001cc:	00028303	     lb	t1, 0(t0)
+   001d0:	00229383	     lh	t2, 2(t0)
+   001d4:	0042a403	     lw	s0, 4(t0)
+   001d8:	0062c483	    lbu	s1, 6(t0)
+   001dc:	0082d503	    lhu	a0, 8(t0)
+   001e0:	00628023	     sb	t1, 0(t0)
+   001e4:	00729123	     sh	t2, 2(t0)
+   001e8:	0082a223	     sw	s0, 4(t0)
+000001ec   <second_target>:
+   001ec:	00a30593	   addi	a1, t1, 10
+   001f0:	00532613	   slti	a2, t1, 5
+   001f4:	00533693	  sltiu	a3, t1, 5
+   001f8:	0ff34713	   xori	a4, t1, 255
+   001fc:	00f36793	    ori	a5, t1, 15
+   00200:	0f037813	   andi	a6, t1, 240
+   00204:	00431893	   slli	a7, t1, 4
+   00208:	00435913	   srli	s2, t1, 4
+   0020c:	40435993	   srai	s3, t1, 4
+   00210:	00730a33	    add	s4, t1, t2
+   00214:	40730ab3	    sub	s5, t1, t2
+   00218:	00731b33	    sll	s6, t1, t2
+   0021c:	00732bb3	    slt	s7, t1, t2
+   00220:	00733c33	   sltu	s8, t1, t2
+   00224:	00734cb3	    xor	s9, t1, t2
+   00228:	00735d33	    srl	s10, t1, t2
+   0022c:	40735db3	    sra	s11, t1, t2
+   00230:	00736e33	     or	t3, t1, t2
+   00234:	00737eb3	    and	t4, t1, t2
+00000238   <thrid_target>:
+   00238:	02838333	    mul	t1, t2, s0
+   0023c:	029413b3	   mulh	t2, s0, s1
+   00240:	02a4a433	 mulhsu	s0, s1, a0
+   00244:	02b534b3	  mulhu	s1, a0, a1
+00000248   <fourth_target>:
+   00248:	02c5c533	    div	a0, a1, a2
+   0024c:	02d655b3	   divu	a1, a2, a3
+   00250:	02e6e633	    rem	a2, a3, a4
+   00254:	02f776b3	   remu	a3, a4, a5
+00000258   <hello>:
+   00258:	fe7308e3	    beq	t1, t2, fourth_target ; 0x248
+   0025c:	fe7316e3	    bne	t1, t2, fourth_target ; 0x248
+   00260:	fe7344e3	    blt	t1, t2, fourth_target ; 0x248
+   00264:	fe7352e3	    bge	t1, t2, fourth_target ; 0x248
+   00268:	fe7360e3	   bltu	t1, t2, fourth_target ; 0x248
+   0026c:	fc737ee3	   bgeu	t1, t2, fourth_target ; 0x248
+
+Symbol Value          	Size Type 	Bind 	Vis   	Index Name
+[   0] 0x0                   0 NOTYPE   LOCAL    DEFAULT   UNDEF 
+[   1] 0x134                 0 SECTION  LOCAL    DEFAULT       1 
+[   2] 0x158                 0 SECTION  LOCAL    DEFAULT       2 
+[   3] 0x17C                 0 SECTION  LOCAL    DEFAULT       3 
+[   4] 0x194                 0 SECTION  LOCAL    DEFAULT       4 
+[   5] 0x1B4                 0 SECTION  LOCAL    DEFAULT       5 
+[   6] 0x1B8                 0 SECTION  LOCAL    DEFAULT       6 
+[   7] 0x1F7C                0 SECTION  LOCAL    DEFAULT       7 
+[   8] 0x1FFC                0 SECTION  LOCAL    DEFAULT       8 
+[   9] 0x0                   0 SECTION  LOCAL    DEFAULT       9 
+[  10] 0x0                   0 FILE     LOCAL    DEFAULT     ABS ccLapNP9.o
+[  11] 0x1B8                 0 NOTYPE   LOCAL    DEFAULT       6 $xrv32i2p1_m2p0_zmmul1p0
+[  12] 0x1C4                 0 NOTYPE   LOCAL    DEFAULT       6 first_target
+[  13] 0x1EC                 0 NOTYPE   LOCAL    DEFAULT       6 second_target
+[  14] 0x238                 0 NOTYPE   LOCAL    DEFAULT       6 thrid_target
+[  15] 0x248                 0 NOTYPE   LOCAL    DEFAULT       6 fourth_target
+[  16] 0x258                 0 NOTYPE   LOCAL    DEFAULT       6 hello
+[  17] 0x0                   0 FILE     LOCAL    DEFAULT     ABS 
+[  18] 0x1F7C                0 OBJECT   LOCAL    DEFAULT     ABS _DYNAMIC
+[  19] 0x1C0                 0 OBJECT   LOCAL    DEFAULT     ABS _PROCEDURE_LINKAGE_TABLE_
+[  20] 0x1FFC                0 OBJECT   LOCAL    DEFAULT     ABS _GLOBAL_OFFSET_TABLE_
+[  21] 0x2800                0 NOTYPE   GLOBAL   DEFAULT     ABS __global_pointer$
+[  22] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 __SDATA_BEGIN__
+[  23] 0x1B8                 0 NOTYPE   GLOBAL   DEFAULT       6 _start
+[  24] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 __BSS_END__
+[  25] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 __bss_start
+[  26] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 __DATA_BEGIN__
+[  27] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 _edata
+[  28] 0x2000                0 NOTYPE   GLOBAL   DEFAULT       8 _end
